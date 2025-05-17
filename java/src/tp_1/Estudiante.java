@@ -23,22 +23,22 @@ public class Estudiante implements Comparable<Estudiante> {
 		return this.dni;
 	}
 
-	public void agregarNota(double nota){
-		if(nota < 0 || nota > 10) {
-			throw new IllegalArgumentException();
+	public void agregarNota(double nota) {
+		if (nota < 0 || nota > 10) {
+			throw new IllegalArgumentException("NOTA INVALIDA");
 		}
 		this.notas.add(nota);
 	}
 
 	public void agregarNota(double[] notas) {
 		for (int i = 0; i < notas.length; i++) {
-			if(notas[i] < 0 || notas[i] > 10) {
-				throw new Error("NOTA INVALIDA");
+			if (notas[i] < 0 || notas[i] > 10) {
+				throw new IllegalArgumentException("NOTA INVALIDA");
 			}
-			this.notas.add(notas[i]);			
-		}		
+			this.notas.add(notas[i]);
+		}
 	}
-	
+
 	public double calcularPromedio() {
 		double acumulado = 0;
 		for (Double nota : this.notas) {
@@ -46,7 +46,7 @@ public class Estudiante implements Comparable<Estudiante> {
 		}
 		return acumulado / notas.size();
 	}
-	
+
 	public boolean esMayorDeEdad() {
 		int edad = Period.between(this.fechaNacimiento, LocalDate.now()).getYears();
 		return edad >= 18;
@@ -73,10 +73,10 @@ public class Estudiante implements Comparable<Estudiante> {
 	@Override
 	public int compareTo(Estudiante o) {
 		double diferenciaProm = this.calcularPromedio() - o.calcularPromedio();
-		if(diferenciaProm > 0) {
+		if (diferenciaProm > 0) {
 			return 1;
 		}
-		if(diferenciaProm < 0) {
+		if (diferenciaProm < 0) {
 			return -1;
 		}
 		return this.dni - o.dni;
