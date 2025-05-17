@@ -34,6 +34,10 @@ public class GestorEstudiantes {
 		this.estudiantes.addAll(estudiantes);
 	}
 	
+	public void agregarEstudiante(Estudiante estudiante) {
+		this.estudiantes.add(estudiante);
+	}
+	
 	public Estudiante buscarEstudiantePorDNI(int dni) {
 		for (Estudiante estudiante : this.estudiantes) {
 			if(estudiante.getDni() == dni) {
@@ -51,6 +55,7 @@ public class GestorEstudiantes {
 				estudiantesRet.add(estudiante);
 			}
 		}
+		estudiantesRet.sort(null); //los devuelvo ordenados por promedio
 		return estudiantesRet;
 	}
 }

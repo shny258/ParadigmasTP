@@ -74,11 +74,19 @@ public class Estudiante implements Comparable<Estudiante> {
 	public int compareTo(Estudiante o) {
 		double diferenciaProm = this.calcularPromedio() - o.calcularPromedio();
 		if (diferenciaProm > 0) {
-			return 1;
+			return -1;
 		}
 		if (diferenciaProm < 0) {
-			return -1;
+			return 1;
 		}
 		return this.dni - o.dni;
 	}
+
+	@Override
+	public String toString() {
+		return "Estudiante [dni=" + dni + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", notas="
+				+ notas + "]";
+	}
+	
+	
 }
