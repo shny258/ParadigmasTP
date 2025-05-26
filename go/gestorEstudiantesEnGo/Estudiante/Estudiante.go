@@ -1,4 +1,4 @@
-package Estudiante
+package estudiante
 
 import (
 	"errors"
@@ -62,12 +62,15 @@ func (e Estudiante) EsMayorDeEdad() bool {
 }
 
 // Método de comparación (como Comparable)
+// POR AHORA NO LO ESTAMOS USANDO PARA NADA
+/*
 func (e Estudiante) Comparar(o Estudiante) int {
 	diferenciaProm := e.CalcularPromedio() - o.CalcularPromedio()
 	if diferenciaProm > 0 {
-		return 1
-	} else if diferenciaProm < 0 {
 		return -1
+	} else if diferenciaProm < 0 {
+		return 1
 	}
 	return e.DNI - o.DNI
 }
+*/

@@ -1,8 +1,8 @@
-package Estudiante
+package estudiante
 
 // GestorEstudiantes usa un map con clave DNI
 type GestorEstudiantes struct {
-	estudiantes map[int]*Estudiante
+	estudiantes map[int]*Estudiante //es como un hashset de java
 }
 
 // Constructor vacío
@@ -30,8 +30,8 @@ func NuevoGestorConSlice(slice []*Estudiante) *GestorEstudiantes {
 
 // Buscar estudiante por DNI
 func (g *GestorEstudiantes) BuscarEstudiantePorDNI(dni int) *Estudiante {
-	if est, existe := g.estudiantes[dni]; existe {
-		return est
+	if estudiante, existe := g.estudiantes[dni]; existe { //verifica si existe la clave dni en el map. si existe, "existe" es true y "estudiante" es el puntero al estudiante
+		return estudiante
 	}
 	return nil
 }
@@ -44,5 +44,5 @@ func (g *GestorEstudiantes) ListarEstudiantesPromedioAprobado() []*Estudiante {
 			aprobados = append(aprobados, e)
 		}
 	}
-	return aprobados
+	return aprobados //NO los ordena
 }
