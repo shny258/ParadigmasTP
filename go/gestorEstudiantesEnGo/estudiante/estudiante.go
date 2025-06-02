@@ -60,17 +60,3 @@ func (e Estudiante) EsMayorDeEdad() bool {
 	edad := time.Since(e.FechaNacimiento).Hours() / 24 / 365.25 //No hay algo como day o year, por eso usamos hour
 	return edad >= 18
 }
-
-// Método de comparación (como Comparable)
-// POR AHORA NO LO ESTAMOS USANDO PARA NADA
-/*
-func (e Estudiante) Comparar(o Estudiante) int {
-	diferenciaProm := e.CalcularPromedio() - o.CalcularPromedio()
-	if diferenciaProm > 0 {
-		return -1
-	} else if diferenciaProm < 0 {
-		return 1
-	}
-	return e.DNI - o.DNI
-}
-*/

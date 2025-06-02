@@ -44,5 +44,5 @@ func (g *GestorEstudiantes) ListarEstudiantesPromedioAprobado() []*Estudiante {
 			aprobados = append(aprobados, e)
 		}
 	}
-	return aprobados //NO los ordena
+	return aprobados
 }
